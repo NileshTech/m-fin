@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "85762199187",
+    "firebase_url": "https://marathi-finance-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "marathi-finance",
+    "storage_bucket": "marathi-finance.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85762199187:android:0d8d89fa4c3505ed828766",
+        "android_client_info": {
+          "package_name": "app.suffix.finance"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "85762199187-shhsmtfimp37nmus629nq9v9aa0uos0s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.suffix.finance",
+            "certificate_hash": "233f7e0d60ae7fbfc8abdcfaf7e0a923a6c6966d"
+          }
+        },
+        {
+          "client_id": "85762199187-9674k6dfeeut4glricff1qfe3em0ng31.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4y4h0UW3oX4hNQp1eMgO0MyKBbK2L3hs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "85762199187-9674k6dfeeut4glricff1qfe3em0ng31.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
