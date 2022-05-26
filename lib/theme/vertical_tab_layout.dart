@@ -136,15 +136,16 @@ class _VerticalTabLayoutState extends State<VerticalTabLayout> {
 
           // ============== right side list view of articles ==============
           Padding(
-            padding: const EdgeInsets.only(
-              left: 60.0,
-            ),
-            child: selectedTabIndex == 0
-                ? CibilArticles()
-                : selectedTabIndex == 1
-                    ? CreditCardArticles()
-                    : CibilArticles(),
-          ),
+              padding: const EdgeInsets.only(
+                left: 60.0,
+              ),
+              child: selectedTabIndex == 0
+                  ? CibilArticles()
+                  : selectedTabIndex == 1
+                      ? CreditCardArticles()
+                      : Center(child: Text("Comming soon..."))
+              // CibilArticles(),
+              ),
         ],
       ),
     );

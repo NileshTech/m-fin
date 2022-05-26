@@ -38,6 +38,13 @@
             {
               "client_id": "85762199187-9674k6dfeeut4glricff1qfe3em0ng31.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "85762199187-f67cm4bfk4f6mr625fpcme4ak2r850fu.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "app.suffix.finance"
+              }
             }
           ]
         }

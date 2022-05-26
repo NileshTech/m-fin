@@ -67,14 +67,18 @@ class _CreditCardArticlesState extends State<CreditCardArticles> {
   Widget build(BuildContext context) {
     Size? screenSize = MediaQuery.of(context).size;
 
-    return FirebaseAnimatedList(
-      query: _creditCardArticlesRef!,
-      itemBuilder: (BuildContext ctx, DataSnapshot snapshot,
-          Animation<double> animation, int index) {
-        Map articles = snapshot.value as Map<dynamic, dynamic>;
-        return _creditCardArticles(
-            map: articles, screenHeight: screenSize.height * 0.1);
-      },
+    return Center(
+      child: Text("Comming soon .."),
     );
+
+    // FirebaseAnimatedList(
+    //   query: _creditCardArticlesRef!,
+    //   itemBuilder: (BuildContext ctx, DataSnapshot snapshot,
+    //       Animation<double> animation, int index) {
+    //     Map articles = snapshot.value as Map<dynamic, dynamic>;
+    //     return _creditCardArticles(
+    //         map: articles, screenHeight: screenSize.height * 0.1);
+    //   },
+    // );
   }
 }

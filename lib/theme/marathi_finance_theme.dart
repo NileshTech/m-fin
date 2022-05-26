@@ -109,7 +109,7 @@ class _MFThemeState extends State<MFTheme> {
                 children: [
                   Flexible(
                       child: Marquee(
-                    text: 'Credit card \n credit card',
+                    text: 'comming ssom..',
                     style: TextStyle(fontWeight: FontWeight.bold),
                     scrollAxis: Axis.horizontal,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -124,7 +124,7 @@ class _MFThemeState extends State<MFTheme> {
                   )),
                   Flexible(
                       child: Marquee(
-                    text: 'Some sample text that takes some space.',
+                    text: 'comming soon..',
                     style: TextStyle(fontWeight: FontWeight.bold),
                     scrollAxis: Axis.horizontal,
                     crossAxisAlignment: CrossAxisAlignment.start,
