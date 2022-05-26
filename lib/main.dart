@@ -44,51 +44,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  late BannerAd staticAd;
-  bool staticAdLoaded = false;
-
-  late BannerAd inlineAd;
-  bool inLineAdLoaded = false;
-
-  static const AdRequest request = AdRequest(
-      // keywords: ['', ''],
-      // contentUrl: '',
-      // nonPersonalizedAds: false,
-      );
-  void loadStaticBannerAd() {
-    staticAd = BannerAd(
-      adUnitId: BannerAd.testAdUnitId,
-      size: AdSize.banner,
-      request: request,
-      listener: BannerAdListener(onAdLoaded: (ad) {
-        setState(() {
-          staticAdLoaded = true;
-        });
-      }, onAdFailedToLoad: (ad, err) {
-        ad.dispose();
-        print('ad failed to load ${err.message}');
-      }),
-    );
-    staticAd.load();
-  }
-
-  void loadInlineBannerAd() {
-    inlineAd = BannerAd(
-      adUnitId: BannerAd.testAdUnitId,
-      size: AdSize.banner,
-      request: request,
-      listener: BannerAdListener(onAdLoaded: (ad) {
-        setState(() {
-          inLineAdLoaded = true;
-        });
-      }, onAdFailedToLoad: (ad, err) {
-        ad.dispose();
-        print('ad failed to load ${err.message}');
-      }),
-    );
-    inlineAd.load();
-  }
-
   @override
   Widget build(BuildContext context) {
     return HomePage();
