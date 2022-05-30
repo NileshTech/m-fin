@@ -1,5 +1,7 @@
 import 'package:finance/common/index.dart';
 
+import '../ads/ads.dart';
+
 class VerticalTabLayout extends StatefulWidget {
   VerticalTabLayout({Key? key}) : super(key: key);
 
@@ -143,7 +145,13 @@ class _VerticalTabLayoutState extends State<VerticalTabLayout> {
                   ? CibilArticles()
                   : selectedTabIndex == 1
                       ? CreditCardArticles()
-                      : Center(child: Text("Comming soon..."))
+                      : Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("Comming soon..."),
+                            MFinAds(),
+                          ],
+                        )
               // CibilArticles(),
               ),
         ],

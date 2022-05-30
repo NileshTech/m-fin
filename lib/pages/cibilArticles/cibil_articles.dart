@@ -1,4 +1,7 @@
 import 'package:finance/common/index.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
+
+import '../../ads/ads.dart';
 
 class CibilArticles extends StatefulWidget {
   CibilArticles();
@@ -9,12 +12,14 @@ class CibilArticles extends StatefulWidget {
 
 class _CibilArticlesState extends State<CibilArticles> {
   Query? _cibilArticlesRef;
+
   @override
   void initState() {
     _cibilArticlesRef = FirebaseDatabase.instance
         .ref()
         .child('inventory/articles/cibil')
         .orderByChild('index-of-article');
+
     super.initState();
   }
 
@@ -79,8 +84,24 @@ class _CibilArticlesState extends State<CibilArticles> {
           itemBuilder: (BuildContext ctx, DataSnapshot snapshot,
               Animation<double> animation, int index) {
             Map articles = snapshot.value as Map<dynamic, dynamic>;
-            return _cibilArticles(
-                map: articles, screenHeight: screenSize.height * 0.1);
+
+            if ((index % 3) == 0) {
+              return Column(
+                children: [
+                  _cibilArticles(
+                      map: articles, screenHeight: screenSize.height * 0.1),
+                  Container(
+                      height: screenSize.height * 0.1,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: MFinAds(),
+                      ))
+                ],
+              );
+            } else {
+              return _cibilArticles(
+                  map: articles, screenHeight: screenSize.height * 0.1);
+            }
           },
         ),
       ),

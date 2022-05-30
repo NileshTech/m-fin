@@ -1,5 +1,7 @@
 import 'package:finance/common/index.dart';
 
+import '../../ads/ads.dart';
+
 class CreditCardArticles extends StatefulWidget {
   CreditCardArticles();
 
@@ -67,8 +69,12 @@ class _CreditCardArticlesState extends State<CreditCardArticles> {
   Widget build(BuildContext context) {
     Size? screenSize = MediaQuery.of(context).size;
 
-    return Center(
-      child: Text("Comming soon .."),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text("Comming soon..."),
+        MFinAds(),
+      ],
     );
 
     // FirebaseAnimatedList(
