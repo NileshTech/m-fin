@@ -1,5 +1,4 @@
 import 'package:finance/common/index.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import '../ads/ads.dart';
 
@@ -48,7 +47,7 @@ class _MFThemeState extends State<MFTheme> {
                             children: [
                               Text(widget.user!.displayName,
                                   style: TextStyle(
-                                      color: brown,
+                                      color: white,
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold)),
                               Text(
@@ -72,7 +71,7 @@ class _MFThemeState extends State<MFTheme> {
                 children: [
                   Flexible(
                       child: Marquee(
-                    text: 'comming ssom..',
+                    text: 'coming soon..',
                     style: TextStyle(fontWeight: FontWeight.bold),
                     scrollAxis: Axis.horizontal,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -87,7 +86,7 @@ class _MFThemeState extends State<MFTheme> {
                   )),
                   Flexible(
                       child: Marquee(
-                    text: 'comming soon..',
+                    text: 'coming soon..',
                     style: TextStyle(fontWeight: FontWeight.bold),
                     scrollAxis: Axis.horizontal,
                     crossAxisAlignment: CrossAxisAlignment.start,

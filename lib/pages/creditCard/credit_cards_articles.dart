@@ -72,7 +72,7 @@ class _CreditCardArticlesState extends State<CreditCardArticles> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("Comming soon..."),
+        Text("coming soon..."),
         MFinAds(),
       ],
     );

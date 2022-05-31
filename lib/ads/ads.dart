@@ -33,7 +33,10 @@ class _MFinAdsState extends State<MFinAds> {
 
     bannerAd = BannerAd(
         size: AdSize.banner,
-        adUnitId: 'ca-app-pub-3940256099942544/6300978111',
+        // ========= Production ======
+        adUnitId: 'ca-app-pub-2953987482308747/5314125953',
+        // ========= Testing ======
+        //  adUnitId:'ca-app-pub-3940256099942544/6300978111',
         listener: bannerAdListener,
         request: adRequest!);
 

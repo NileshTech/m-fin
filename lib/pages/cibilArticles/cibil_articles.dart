@@ -13,6 +13,8 @@ class CibilArticles extends StatefulWidget {
 class _CibilArticlesState extends State<CibilArticles> {
   Query? _cibilArticlesRef;
 
+  final int adOffSet = 3;
+
   @override
   void initState() {
     _cibilArticlesRef = FirebaseDatabase.instance
@@ -85,7 +87,7 @@ class _CibilArticlesState extends State<CibilArticles> {
               Animation<double> animation, int index) {
             Map articles = snapshot.value as Map<dynamic, dynamic>;
 
-            if ((index % 3) == 0) {
+            if (((index + 1) % 3) == 0) {
               return Column(
                 children: [
                   _cibilArticles(

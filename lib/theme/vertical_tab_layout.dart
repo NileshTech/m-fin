@@ -148,7 +148,7 @@ class _VerticalTabLayoutState extends State<VerticalTabLayout> {
                       : Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Comming soon..."),
+                            Text("coming soon..."),
                             MFinAds(),
                           ],
                         )

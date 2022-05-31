@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "85762199187-f65c89ljceqnkj9qf65kpvhrvtrjv33c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.suffix.finance",
+            "certificate_hash": "4f4001f10cab32c0b76036212652cd1b526725d3"
+          }
+        },
+        {
           "client_id": "85762199187-shhsmtfimp37nmus629nq9v9aa0uos0s.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -48,7 +56,8 @@
             }
           ]
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-2953987482308747~2550826273"
     }
   ],
   "configuration_version": "1"
