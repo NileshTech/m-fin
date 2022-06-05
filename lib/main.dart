@@ -34,7 +34,7 @@ Future<void> main() async {
 
   if (!kIsWeb) {
     channel = const AndroidNotificationChannel(
-      'high_importance_channel', // id
+      "1", // id
       'High Importance Notifications', // title
       description:
           'This channel is used for important notifications.', // description
@@ -77,10 +77,10 @@ String constructFCMPayload(String? token) {
       'via': 'FlutterFire Cloud Messaging!!!',
       'count': _messageCount.toString(),
     },
-    'notification': {
-      'title': 'Hello FlutterFire!',
-      'body': 'This notification (#$_messageCount) was created via FCM!',
-    },
+    // 'notification': {
+    //   'title': 'Hello FlutterFire!',
+    //   'body': 'This notification (#$_messageCount) was created via FCM!',
+    // },
   });
 }
 
@@ -125,10 +125,9 @@ class _MyHomePageState extends State<MyHomePage> {
         .getInitialMessage()
         .then((RemoteMessage? message) {
       if (message != null) {
-        Navigator.pushNamed(
+        Navigator.push(
           context,
-          '/message',
-          arguments: HomePage(),
+          MaterialPageRoute(builder: (context) => HomePage()),
         );
       }
     });
@@ -157,10 +156,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
       print('A new onMessageOpenedApp event was published!');
-      Navigator.pushNamed(
+      Navigator.push(
         context,
-        '/message',
-        arguments: HomePage(),
+        MaterialPageRoute(builder: (context) => HomePage()),
       );
     });
   }
