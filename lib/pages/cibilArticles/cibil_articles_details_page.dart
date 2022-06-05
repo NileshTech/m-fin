@@ -1,5 +1,4 @@
 import 'package:finance/common/index.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import '../../ads/ads.dart';
 
@@ -17,7 +16,7 @@ class _CibilArticleDetailsPageState extends State<CibilArticleDetailsPage> {
 
   @override
   Widget build(BuildContext context) {
-    Size? screenSize = MediaQuery.of(context).size;
+    // Size? screenSize = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
         body: Column(

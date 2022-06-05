@@ -10,11 +10,11 @@ class CreditCardArticles extends StatefulWidget {
 }
 
 class _CreditCardArticlesState extends State<CreditCardArticles> {
-  Query? _creditCardArticlesRef;
+  // Query? _creditCardArticlesRef;
   @override
   void initState() {
-    _creditCardArticlesRef =
-        FirebaseDatabase.instance.ref().child('inventory/cards/credit-cards');
+    // _creditCardArticlesRef =
+    //     FirebaseDatabase.instance.ref().child('inventory/cards/credit-cards');
     super.initState();
   }
 
@@ -67,7 +67,7 @@ class _CreditCardArticlesState extends State<CreditCardArticles> {
 
   @override
   Widget build(BuildContext context) {
-    Size? screenSize = MediaQuery.of(context).size;
+    // Size? screenSize = MediaQuery.of(context).size;
 
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
