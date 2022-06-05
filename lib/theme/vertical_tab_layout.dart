@@ -1,4 +1,5 @@
 import 'package:finance/common/index.dart';
+import 'package:finance/pages/gov_gr.dart/gr_articles.dart';
 
 import '../ads/ads.dart';
 
@@ -61,7 +62,7 @@ class _VerticalTabLayoutState extends State<VerticalTabLayout> {
                                     ? FontWeight.bold
                                     : FontWeight.normal),
                             duration: const Duration(milliseconds: 500),
-                            child: Text("सिबिल (cibil)"),
+                            child: Text("सरकारी निर्णय"),
                           ),
                         ),
                       ),
@@ -93,7 +94,7 @@ class _VerticalTabLayoutState extends State<VerticalTabLayout> {
                                     ? FontWeight.bold
                                     : FontWeight.normal),
                             duration: const Duration(milliseconds: 500),
-                            child: Text("क्रेडिट कार्ड"),
+                            child: Text("सिबिल (cibil)"),
                           ),
                         ),
                       ),
@@ -125,6 +126,38 @@ class _VerticalTabLayoutState extends State<VerticalTabLayout> {
                                     ? FontWeight.bold
                                     : FontWeight.normal),
                             duration: const Duration(milliseconds: 500),
+                            child: Text("क्रेडिट कार्ड"),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Transform.rotate(
+                    angle: -1.58,
+                    child: InkWell(
+                      onTap: () {
+                        onTapTapped(3);
+                      },
+                      child: Container(
+                        decoration: selectedTabIndex == 3
+                            ? BoxDecoration(
+                                border: Border.all(
+                                  width: 1,
+                                  color: white,
+                                ),
+                              )
+                            : BoxDecoration(),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: AnimatedDefaultTextStyle(
+                            style: TextStyle(
+                                color: selectedTabIndex == 3
+                                    ? white
+                                    : white.withOpacity(0.5),
+                                fontWeight: selectedTabIndex == 3
+                                    ? FontWeight.bold
+                                    : FontWeight.normal),
+                            duration: const Duration(milliseconds: 500),
                             child: Text("Apps"),
                           ),
                         ),
@@ -142,16 +175,18 @@ class _VerticalTabLayoutState extends State<VerticalTabLayout> {
                 left: 60.0,
               ),
               child: selectedTabIndex == 0
-                  ? CibilArticles()
+                  ? GRArticles()
                   : selectedTabIndex == 1
-                      ? CreditCardArticles()
-                      : Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text("coming soon..."),
-                            MFinAds(),
-                          ],
-                        )
+                      ? CibilArticles()
+                      : selectedTabIndex == 2
+                          ? CreditCardArticles()
+                          : Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text("coming soon..."),
+                                MFinAds(),
+                              ],
+                            )
               // CibilArticles(),
               ),
         ],

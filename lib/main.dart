@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:finance/helpers/http_pdf_override.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'common/index.dart';
@@ -6,6 +9,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   await MobileAds.instance.initialize();
+  HttpOverrides.global = MyHttpOverrides();
+
   runApp(const MyApp());
 }
 

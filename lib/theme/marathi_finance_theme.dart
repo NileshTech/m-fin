@@ -16,6 +16,11 @@ class MFTheme extends StatefulWidget {
 
 class _MFThemeState extends State<MFTheme> {
   @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     Size? screenSize = MediaQuery.of(context).size;
     return SafeArea(
