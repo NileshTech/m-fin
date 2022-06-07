@@ -1,8 +1,7 @@
 import 'package:finance/common/index.dart';
 
 class Dashboard extends StatefulWidget {
-  final Widget? adWidget;
-  Dashboard({Key? key, this.adWidget});
+  Dashboard({Key? key});
 
   @override
   _DashboardState createState() => _DashboardState();

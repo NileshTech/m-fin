@@ -1,4 +1,5 @@
 import 'package:finance/common/index.dart';
+import 'package:finance/helpers/mfin_utils.dart';
 
 class HomePage extends StatefulWidget {
   final Widget? adWidget;
@@ -9,7 +10,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  var user;
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
@@ -20,10 +20,18 @@ class _HomePageState extends State<HomePage> {
               child: CircularProgressIndicator(),
             );
           } else if (snapshot.hasData) {
-            return MFTheme(
-              body: Dashboard(adWidget: widget.adWidget),
-              user: snapshot.data,
-            );
+            return FutureBuilder<bool>(
+                future: MFinUtils.userUserInfoInDB(snapshot.data),
+                builder: (context, snapshot1) {
+                  if (!snapshot1.hasData) {
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  }
+                  return MFTheme(
+                    user: snapshot.data,
+                  );
+                });
           } else if (snapshot.hasError) {
             return const Center(
               child: Text("Something went wrong..!"),

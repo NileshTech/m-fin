@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:finance/helpers/mfin_utils.dart';
 import 'package:http/http.dart' as http;
 import 'package:finance/helpers/http_pdf_override.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -119,6 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
+    MFinUtils.updateAppVersion();
     FirebaseMessaging.instance
         .getInitialMessage()
         .then((RemoteMessage? message) {
