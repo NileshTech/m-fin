@@ -48,8 +48,11 @@ class MFinUtils {
     });
 
     // == updating inventory stats === //
-    await userRef.ref
-        .child('inventory/ad-free-interested')
-        .update({"user-id": userId});
+    await userRef.ref.child('inventory/ad-free-interested').update({
+      userId: {
+        "ad-free-interest": userInput,
+        "app-version": UserEnvirnment.appVersion
+      }
+    });
   }
 }
