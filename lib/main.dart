@@ -95,9 +95,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'm-fin',
-        theme: ThemeData(),
-        darkTheme: ThemeData(
-          primaryColorDark: Colors.black,
+        theme: ThemeData(
           brightness: Brightness.dark,
         ),
         home: const MyHomePage(title: 'm-fin'),
