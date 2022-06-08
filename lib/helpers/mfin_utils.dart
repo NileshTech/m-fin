@@ -19,7 +19,6 @@ class MFinUtils {
       "user-info": {
         "email": userObject.email,
         "user-id": userObject.uid,
-        "last-update-datetime": DateTime.now().millisecondsSinceEpoch,
         "profile-puc-url": userObject.photoURL,
       },
       "device-info": {"app-version": UserEnvirnment.appVersion},

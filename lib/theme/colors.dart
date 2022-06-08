@@ -10,6 +10,8 @@ const lightGreen = Color(0XFF66CB47);
 
 const bluishGreen = Color(0XFFE3FFF0);
 
+const black = Color(0x00000);
+
 const white = Color(0XFFFFFFFF);
 
 const coffee = Color(0XFFFFF7D5);

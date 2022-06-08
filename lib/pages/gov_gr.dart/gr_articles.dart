@@ -14,8 +14,10 @@ class _GRArticlesState extends State<GRArticles> {
   Query? _grArticleRef;
   @override
   void initState() {
-    _grArticleRef =
-        FirebaseDatabase.instance.ref().child('inventory/gr/articles');
+    _grArticleRef = FirebaseDatabase.instance
+        .ref()
+        .child('inventory/gr/articles')
+        .orderByChild('index');
     super.initState();
   }
 
