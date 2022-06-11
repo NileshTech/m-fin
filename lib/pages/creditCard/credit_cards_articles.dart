@@ -1,4 +1,5 @@
 import 'package:finance/common/index.dart';
+import 'package:finance/pages/coming_soon_page.dart';
 
 import '../../ads/ads.dart';
 
@@ -69,13 +70,7 @@ class _CreditCardArticlesState extends State<CreditCardArticles> {
   Widget build(BuildContext context) {
     // Size? screenSize = MediaQuery.of(context).size;
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text("coming soon..."),
-        MFinAds(),
-      ],
-    );
+    return ComingSoonPage();
 
     // FirebaseAnimatedList(
     //   query: _creditCardArticlesRef!,

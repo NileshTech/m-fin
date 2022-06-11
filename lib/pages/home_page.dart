@@ -29,8 +29,10 @@ class _HomePageState extends State<HomePage> {
                     );
                   }
                   return MFTheme(
-                    user: snapshot.data,
-                  );
+                      user: snapshot.data,
+                      body: Dashboard(
+                        user: snapshot.data,
+                      ));
                 });
           } else if (snapshot.hasError) {
             return const Center(

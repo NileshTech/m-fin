@@ -1,4 +1,5 @@
 import 'package:finance/common/index.dart';
+import 'package:finance/pages/coming_soon_page.dart';
 import 'package:finance/pages/gov_gr.dart/gr_articles.dart';
 
 import '../ads/ads.dart';
@@ -180,13 +181,7 @@ class _VerticalTabLayoutState extends State<VerticalTabLayout> {
                       ? CibilArticles()
                       : selectedTabIndex == 2
                           ? CreditCardArticles()
-                          : Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text("coming soon..."),
-                                MFinAds(),
-                              ],
-                            )
+                          : ComingSoonPage()
               // CibilArticles(),
               ),
         ],
