@@ -12,6 +12,7 @@ class _MFinAdsState extends State<MFinAds> {
   AdRequest? adRequest;
 
   BannerAd? bannerAd;
+
   @override
   void initState() {
     adRequest = const AdRequest(
@@ -58,5 +59,21 @@ class _MFinAdsState extends State<MFinAds> {
       height: screenSize.height * 0.1,
       child: AdWidget(ad: bannerAd!),
     );
+  }
+}
+
+class MFinRewardedAds {
+  static RewardedAd? rewardedAd;
+
+  static Future<void> loadRewardedAd() async {
+    await RewardedAd.load(
+        adUnitId: "ca-app-pub-2953987482308747/1491925278",
+        request: const AdRequest(),
+        rewardedAdLoadCallback:
+            RewardedAdLoadCallback(onAdLoaded: (RewardedAd ad) {
+          rewardedAd = ad;
+        }, onAdFailedToLoad: (LoadAdError error) {
+          rewardedAd = null;
+        }));
   }
 }

@@ -1,5 +1,6 @@
 import 'package:finance/common/index.dart';
 import 'package:finance/env/user_app_env.dart';
+import 'package:finance/games/sudoku/sudoku.dart';
 import 'package:finance/helpers/mfin_utils.dart';
 import 'package:finance/pages/common_widgets/reawards_icon.dart';
 
@@ -11,11 +12,34 @@ class Dashboard extends StatefulWidget {
   _DashboardState createState() => _DashboardState();
 }
 
-class _DashboardState extends State<Dashboard> {
+class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
+  AnimationController? _resizableController;
+
   bool isLoading = true;
   @override
   void initState() {
     checkAdFreeInterest();
+    _resizableController = new AnimationController(
+      vsync: this,
+      duration: new Duration(
+        milliseconds: 1000,
+      ),
+    );
+    _resizableController!.addStatusListener((animationStatus) {
+      switch (animationStatus) {
+        case AnimationStatus.completed:
+          _resizableController!.reverse();
+          break;
+        case AnimationStatus.dismissed:
+          _resizableController!.forward();
+          break;
+        case AnimationStatus.forward:
+          break;
+        case AnimationStatus.reverse:
+          break;
+      }
+    });
+    _resizableController!.forward();
     super.initState();
   }
 
@@ -29,7 +53,6 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     Size? screenSize = MediaQuery.of(context).size;
-
     return Column(
       children: [
         // ======= user details at top of home screen =====
@@ -88,7 +111,7 @@ class _DashboardState extends State<Dashboard> {
         // ======== feature to be launched ======
         isLoading == false
             ? Expanded(
-                flex: 1,
+                flex: UserEnvirnment.interestForAdsUpdated == false ? 1 : 2,
                 child: UserEnvirnment.interestForAdsUpdated == false
                     ? Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -149,23 +172,68 @@ class _DashboardState extends State<Dashboard> {
                           )),
                         ],
                       )
-                    : Flexible(
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 8.0),
-                          child: Marquee(
-                            text: 'coming soon..',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                            scrollAxis: Axis.horizontal,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            blankSpace: 20.0,
-                            velocity: 100.0,
-                            pauseAfterRound: Duration(milliseconds: 500),
-                            startPadding: 10.0,
-                            accelerationDuration: Duration(seconds: 1),
-                            accelerationCurve: Curves.linear,
-                            decelerationDuration: Duration(milliseconds: 500),
-                            decelerationCurve: Curves.easeOut,
-                          ),
+                    : Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: AnimatedBuilder(
+                          animation: _resizableController!.view,
+                          builder: (context, child) {
+                            return InkWell(
+                              onTap: () {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Sudoku()),
+                                );
+                              },
+                              child: Container(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.rectangle,
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(12)),
+                                    border: Border.all(
+                                        color: Colors.blue,
+                                        width: _resizableController!.value * 2),
+                                  ),
+                                  // decoration: BoxDecoration(
+                                  //   border: Border.all(
+                                  //     width: 1,
+                                  //     color: white,
+                                  //   ),
+                                  // ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(2.0),
+                                          child: Image.asset(
+                                              "assets/icon/icon_square.png"),
+                                        ),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text("Sudoku"),
+                                            Text(
+                                                "तुमच्यासाठी एक आधुनिक आणि पुनर्विचार\n सुडोकू डिझाइन सादर करत आहे."),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          width: screenSize.width * 0.05,
+                                        ),
+                                        Column(
+                                          children: [
+                                            Icon(Icons.play_arrow),
+                                            Text("Play")
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                  )),
+                            );
+                          },
                         ),
                       ),
               )
