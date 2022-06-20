@@ -322,13 +322,10 @@ class AlertAccentColors extends State<AlertAccentColorsState> {
 }
 
 class AlertAbout extends StatelessWidget {
-  static const String authorURL = "https://www.github.com/VarunS2002/";
-  static const String releasesURL =
-      "https://github.com/VarunS2002/Flutter-Sudoku/releases/";
-  static const String sourceURL =
-      "https://github.com/VarunS2002/Flutter-Sudoku/";
-  static const String licenseURL =
-      "https://github.com/VarunS2002/Flutter-Sudoku/blob/master/LICENSE";
+  static const String authorURL = "https://www.nileshtech.com";
+  static const String releasesURL = "https://www.nileshtech.com";
+  static const String sourceURL = "https://www.nileshtech.com";
+  static const String licenseURL = "https://www.nileshtech.com";
 
   @override
   Widget build(BuildContext context) {
@@ -385,7 +382,7 @@ class AlertAbout extends StatelessWidget {
               ),
               InkWell(
                 onTap: () async {
-                  await launch(AlertAbout.releasesURL);
+                  await launchUrl(Uri.parse(AlertAbout.releasesURL));
                 },
                 child: Text(
                   ' ',
@@ -428,10 +425,10 @@ class AlertAbout extends StatelessWidget {
               ),
               InkWell(
                 onTap: () async {
-                  await launch(AlertAbout.authorURL);
+                  await launchUrl(Uri.parse(AlertAbout.releasesURL));
                 },
                 child: Text(
-                  'VarunS2002',
+                  'Nilesh Payghan',
                   style: TextStyle(
                       color: Styles.primaryColor,
                       fontFamily: 'roboto',
@@ -464,10 +461,10 @@ class AlertAbout extends StatelessWidget {
               ),
               InkWell(
                 onTap: () async {
-                  await launch(AlertAbout.licenseURL);
+                  await launchUrl(Uri.parse(AlertAbout.releasesURL));
                 },
                 child: Text(
-                  'GNU GPLv3',
+                  'm-fin',
                   style: TextStyle(
                       color: Styles.primaryColor,
                       fontFamily: 'roboto',
@@ -493,7 +490,7 @@ class AlertAbout extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () async {
-                  await launch(AlertAbout.sourceURL);
+                  await launchUrl(Uri.parse(AlertAbout.releasesURL));
                 },
                 child: Text(
                   'Source Code',

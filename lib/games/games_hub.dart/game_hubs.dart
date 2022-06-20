@@ -77,8 +77,8 @@ class _GamesHubState extends State<GamesHub> {
                         padding: const EdgeInsets.all(12.0),
                         child: Container(
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              border: Border.all(width: 2, color: white)),
+                              borderRadius: BorderRadius.circular(25),
+                              border: Border.all(width: 1, color: white)),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
