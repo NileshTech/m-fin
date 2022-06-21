@@ -191,7 +191,7 @@ class _DashboardState extends State<Dashboard> with TickerProviderStateMixin {
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(12)),
                                     border: Border.all(
-                                        color: redText,
+                                        color: Colors.indigo,
                                         width: _resizableController!.value * 3),
                                   ),
                                   // decoration: BoxDecoration(

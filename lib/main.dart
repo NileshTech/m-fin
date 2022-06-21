@@ -7,6 +7,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:in_app_update/in_app_update.dart';
 
 import 'common/index.dart';
 
@@ -116,9 +117,39 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   String? _token;
+  AppUpdateInfo? _updateInfo;
+  GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey();
+
+  // Platform messages are asynchronous, so we initialize in an async method.
+  Future<void> checkForUpdate() async {
+    InAppUpdate.checkForUpdate().then((info) {
+      setState(() {
+        _updateInfo = info;
+        _updateInfo?.updateAvailability == UpdateAvailability.updateAvailable
+            ? performImidiateUpdate()
+            : print('=== App is upto date ===');
+      });
+    }).catchError((e) {
+      showSnack(e.toString());
+    });
+  }
+
+  void showSnack(String text) {
+    if (_scaffoldKey.currentContext != null) {
+      ScaffoldMessenger.of(_scaffoldKey.currentContext!)
+          .showSnackBar(SnackBar(content: Text(text)));
+    }
+  }
+
+  Future<void> performImidiateUpdate() async {
+    InAppUpdate.performImmediateUpdate()
+        .catchError((e) => showSnack(e.toString()));
+  }
 
   @override
   void initState() {
+    checkForUpdate();
+
     super.initState();
     MFinUtils.updateAppVersion();
     FirebaseMessaging.instance
